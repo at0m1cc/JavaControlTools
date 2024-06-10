@@ -7,9 +7,5 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="commands" class="ru.at0m1cc.Commands"/>
-    <bean id="serverLogic" class="ru.at0m1cc.ServerLogic">
-        <constructor-arg name="port" value="5556"/>
-        <constructor-arg name="command" ref="commands"/>
-    </bean>
+    <context:component-scan base-package="ru.at0m1cc"/>
 </beans>
