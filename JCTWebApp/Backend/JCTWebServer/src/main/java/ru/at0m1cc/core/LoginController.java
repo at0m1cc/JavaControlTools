@@ -2,13 +2,12 @@ package ru.at0m1cc.core;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * Контроллер для отслежевания захода на Login
+ * Контроллер для отслеживания захода на Login
  * @author at0m1cc
  * @version 1.0
  * */
@@ -19,8 +18,14 @@ public class LoginController {
      * В данном случае мы возвращаем в ответе пользователю страницу Login.html
      * */
     @GetMapping("/login")
-    public String loginForm() {
-        return "Login";
+    public String loginForm(HttpSession session) {
+        //Проверка на то, есть ли атрибут loginStatus
+        if (session.getAttribute("loginStatus") != null) {
+            return "redirect:/main";
+        }
+        else {
+            return "Login";
+        }
     }
     /**
      * Аннотация @PostMapping вызывается когда мы нажимаем на форме Login.html кнопку Login
@@ -29,12 +34,13 @@ public class LoginController {
      * */
     @PostMapping("/login")
     public String login(HttpSession session, @RequestParam("password") String password) {
+        // Проверка переданного параметра password с действительным паролем
         if(password.equals("password")) {
             session.setAttribute("loginStatus", "ok");
-            return "redirect:/main";
+            return "redirect:/main"; //Если всё ок, то редиректим на главную страницу
         }
         else {
-            return "redirect:/login";
+            return "redirect:/login"; // Если пароль не верный
         }
     }
 

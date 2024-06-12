@@ -3,7 +3,7 @@ package ru.at0m1cc.config;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
- * Класс который наследуется от AbstractAnnotationConfigDispatcherServletInitializer для замены web.xml
+ * Класс, который наследуется от AbstractAnnotationConfigDispatcherServletInitializer для замены web.xml
  * */
 public class ConfigureMVC extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
@@ -11,7 +11,7 @@ public class ConfigureMVC extends AbstractAnnotationConfigDispatcherServletIniti
         return null;
     }
     /**
-     * Класс который принемает в себе конфигурацию applicationContext
+     * Класс, который принимает в себе конфигурацию applicationContext
      * */
     @Override
     protected Class<?>[] getServletConfigClasses() {
