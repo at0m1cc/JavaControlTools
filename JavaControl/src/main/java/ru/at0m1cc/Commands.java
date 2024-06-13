@@ -1,13 +1,11 @@
 package ru.at0m1cc;
 
-import org.springframework.stereotype.Component;
 import java.io.IOException;
 /**
- * Класс с набором команд с использованием аннотаций Spring framework
+ * Класс с набором команд
  * @author at0m1cc
  * @version 1.0
  * */
-@Component("command")
 public class Commands {
     /**Метод, который отправляет shell скрипт для перезагрузки ПК*/
     public void reboot(){

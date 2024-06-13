@@ -1,10 +1,5 @@
 package ru.at0m1cc;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,11 +7,11 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 /**
- * Класс сервера с использованием аннотаций и внедрения зависимостей с помощью Spring framework
+ * Класс сервера
  * @author at0m1cc
  * @version 1.0
  * */
-@Component("serverLogic")
+
 public class ServerLogic {
     /**Поле порта для подключения*/
     private final int port;
@@ -27,8 +22,7 @@ public class ServerLogic {
      * @param port Порт для подключения к данному компьютеру (По умолчанию 5556)
      * @param command Основные команды Windows
      * */
-    @Autowired
-    public ServerLogic(@Value("5556") int port, Commands command) {
+    public ServerLogic(int port, Commands command) {
         this.port = port;
         this.command = command;
     }
