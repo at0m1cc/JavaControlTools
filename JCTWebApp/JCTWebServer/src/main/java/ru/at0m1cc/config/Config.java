@@ -16,13 +16,16 @@ import org.thymeleaf.spring6.view.ThymeleafViewResolver;
  * Класс конфигурации который заменяет xml конфигурацию Spring
  * Аннотация @Configuration указывает на то что данный класс является конфигурацией
  * Аннотация @EnableWebMvc говорит о том, что необходимо использовать SpringMVC
- * Аннотация @ComponentScan("ru.at0m1cc.core") и @ComponentScan("ru.at0m1cc.core.sub") указывает на пакет где будут искаться и создаваться бины
+ * Аннотация @ComponentScan("ru.at0m1cc.core") указывает на пакет где будут искаться и создаваться бины
  * Так же мы реализовываем интерфейс WebMvcConfigurer у которого переопределяем метод configureViewResolvers для использования шаблонизатора thymeleaf
  * */
 @Configuration
 @EnableWebMvc
 @ComponentScan("ru.at0m1cc.core")
 public class Config implements WebMvcConfigurer {
+    /**
+     * applicationContext
+     * */
     private final ApplicationContext applicationContext;
 
     @Autowired

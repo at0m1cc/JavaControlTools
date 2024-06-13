@@ -32,8 +32,8 @@
 					<td th:text="${info.getValue()}"></td>
 					<td>Active</td>
 					<td align="center">
-						<form method="get" action="">
-							<button class="buttonTable" name="PCControl" th:value="${info}">Control</button>
+						<form method="get" action="/Control">
+							<button class="buttonTable" name="ipAddress" th:value="${info.getKey()}">Control</button>
 						</form>
 					</td>
 				</tr>
