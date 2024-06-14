@@ -11,11 +11,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.io.IOException;
 import java.net.Socket;
 
+/**
+ * Контроллер для отслеживания захода на /Control
+ * @author at0m1cc
+ * @version 1.0
+ * */
 @Controller
 public class ControlController {
-
+    /**
+     * Хранения ip полученного из JC
+     * */
     private String ipAddress;
-
+    /**
+     * Маппинг для /Control GET
+     * */
     @GetMapping("/Control")
     public String controlForm(HttpSession session, @RequestParam("ipAddress") String ipAddress, Model model, HttpServletRequest request) {
         this.ipAddress = ipAddress;
@@ -27,7 +36,9 @@ public class ControlController {
             return "redirect:/login";
         }
     }
-
+    /**
+     * Маппинг для /Control POST
+     * */
     @PostMapping("/Control")
     public String controlParam(HttpSession session, HttpServletRequest request) {
         if(request.getParameter("reboot") != null) {
