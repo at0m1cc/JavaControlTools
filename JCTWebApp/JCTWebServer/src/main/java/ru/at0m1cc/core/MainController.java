@@ -33,7 +33,7 @@ public class MainController {
         //проверка наличия атрибута loginStatus
         if(session.getAttribute("loginStatus") != null){
             /*
-             * На странице MainForm.html присутвуют несколько элементов котрые передают
+             * На странице MainForm.html пресутсвуют несколько элементов, которые передают
              * различные GET параметры которые мы тут проверяем
              * */
             if(request.getParameter("logOut") != null){
@@ -43,9 +43,12 @@ public class MainController {
             if(request.getParameter("jC") != null){
                 return "redirect:/JC";
             }
-            return "MainForm"; //Если нет параметров то просто вернуть страницу
+            if(request.getParameter("settings") != null){
+                return "redirect:/Settings";
+            }
+            return "MainForm"; //Если нет параметров, то просто вернуть страницу
         }
-        else { //Если loginStatus нет то вернём страницу Login.html
+        else { //Если loginStatus нет, то вернём страницу Login.html
             return "redirect:/login";
         }
     }

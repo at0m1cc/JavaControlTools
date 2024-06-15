@@ -58,7 +58,7 @@ h1 {
   border-style: groove;
   width: 110px;
   transition: 0.5s;
-  margin-right: -14px;
+
 }
 .button:hover {
  background-color: #5890c4;

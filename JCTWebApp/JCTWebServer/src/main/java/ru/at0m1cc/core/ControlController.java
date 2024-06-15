@@ -27,9 +27,9 @@ public class ControlController {
      * */
     @GetMapping("/Control")
     public String controlForm(HttpSession session, @RequestParam("ipAddress") String ipAddress, Model model, HttpServletRequest request) {
-        this.ipAddress = ipAddress;
+        this.ipAddress = ipAddress; // Принимаем параметр ipAddress из запроса
         if(session.getAttribute("loginStatus") != null) {
-            model.addAttribute("ipAddress", this.ipAddress);
+            model.addAttribute("ipAddress", this.ipAddress); // Передаём параметр ipAddress в модель для представления на html
             return "Control";
         }
         else {
