@@ -5,6 +5,7 @@ function pwdChange() {
 
     }
     else {
+        //Запрос к Settings с аргументами из prompt
         request.open("POST", "/Settings", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.send("password=" + passwordCheck);
