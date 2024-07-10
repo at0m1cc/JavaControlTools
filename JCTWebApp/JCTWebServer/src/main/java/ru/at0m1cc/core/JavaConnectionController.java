@@ -19,7 +19,7 @@ import java.util.Map;
  * @version 1.0
  * */
 @Controller
-public class JavaConnectionController {
+public class    JavaConnectionController {
     /**
      * Мапа для хранения IP адресов и портов тех ПК, которые хотя-бы 1 раз были активными
      * */
